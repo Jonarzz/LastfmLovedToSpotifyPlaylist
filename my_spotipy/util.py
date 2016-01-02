@@ -46,9 +46,17 @@ def prompt_for_user_token(username, scope=None, client_id=None,
     webbrowser.open(auth_url)
 
     callbackServer.wait_for_request()
+
+    count = 0
     while callbackServer.url == '':
-        pass
-    response = callbackServer.url
+        if count > 1000:
+            break
+        count += 1
+
+    if callbackServer.url == '':
+        response = None
+    else:
+        response = callbackServer.url
 
     code = sp_oauth.parse_response_code(response)
     token_info = sp_oauth.get_access_token(code)
