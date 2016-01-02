@@ -12,6 +12,8 @@ install:
 - pip install coveralls
 # command to run tests
 script:
+  sudo firewall-cmd --zone=public --add-port=80/tcp --permanent
+  sudo firewall-cmd --reload
   sudo chmod -R +x
   sudo coverage run --source=lastfm_to_spotify lastfm_to_spotify.py orzeu89 test2 test
 after_success:
