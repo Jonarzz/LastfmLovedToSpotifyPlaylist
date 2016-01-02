@@ -8,19 +8,23 @@ import properties
 __author__ = 'Jonarzz'
 
 
-def get_loved_tracks(username, password):
+def get_loved_tracks_list(username, password):
     """Method that returns a list of track dictionaries in such format:
     {'artist': artist-name, 'title': track-title}
     for the user with given username and password."""
-    loved_tracks = get_lastfm_user(username, password).get_loved_tracks(limit=None)
+    return [create_track_dict(loved_track) for loved_track in get_loved_tracks(username, password)]
 
-    tracks_list = []
-    for loved_track in loved_tracks:
-        track = {'artist': loved_track.track.artist.get_name(),
-                 'title': loved_track.track.title}
-        tracks_list.append(track)
 
-    return tracks_list
+def create_track_dict(loved_track):
+    """Method that creates a dictionary for a given loved_track from LastFM API in such format:
+    {'artist': artist-name, 'title': track-title}"""
+    return {'artist': loved_track.track.artist.get_name(),
+            'title': loved_track.track.title}
+
+
+def get_loved_tracks(username, password, track_limit=None):
+    """Method that returns loved tracks objects using LastFM API."""
+    return get_lastfm_user(username, password).get_loved_tracks(limit=track_limit)
 
 
 def get_lastfm_user(username, password):
