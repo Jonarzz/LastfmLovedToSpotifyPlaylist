@@ -1,5 +1,5 @@
 # Lastfm Loved To Spotify Playlist 
-![Created using coverage-badge.py](coverage_badge.svg)
+<img url="coverage_badge.svg" src="coverage_badge.png" alt="Generated using coverage-badge.py" height="20">
 [![Code Climate](https://codeclimate.com/github/Jonarzz/LastfmLovedToSpotifyPlaylist/badges/gpa.svg)](https://codeclimate.com/github/Jonarzz/LastfmLovedToSpotifyPlaylist) [![Issue Count](https://codeclimate.com/github/Jonarzz/LastfmLovedToSpotifyPlaylist/badges/issue_count.svg)](https://codeclimate.com/github/Jonarzz/LastfmLovedToSpotifyPlaylist)
 ###*Work in progress*
 
