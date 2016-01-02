@@ -13,7 +13,7 @@ install:
 - pip install coveralls
 # command to run tests
 script:
-- sudo chmod -R +x
-- sudo coverage run --source=lastfm_to_spotify lastfm_to_spotify.py orzeu89 test2 test
+- sudo chmod -R +x *
+- sudo coverage run --source=lastfm_to_spotify lastfm_to_spotify.py test
 after_success:
   coveralls
