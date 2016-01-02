@@ -12,6 +12,6 @@ install:
 - pip install coveralls
 # command to run tests
 script: 
-  coverage run test_lastfm.py test
+  coverage run --source=lastfm test_lastfm.py test
 after_success:
   coveralls
