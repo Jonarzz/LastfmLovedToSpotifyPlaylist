@@ -9,6 +9,9 @@ python:
 install:
 - pip install pylast
 - pip install spotipy
+- pip install coveralls
 # command to run tests
 script: 
-- python test_lastfm.py
+  coverage run test_lastfm.py test
+after_success:
+  coveralls
