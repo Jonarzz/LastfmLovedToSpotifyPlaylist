@@ -1,5 +1,5 @@
 import spotipy
-import spotipy.util as util
+import my_spotipy.util as util
 
 import lastfm
 

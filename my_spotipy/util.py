@@ -3,7 +3,7 @@
 from __future__ import print_function
 import os
 import webbrowser
-from . import oauth2
+from spotipy import oauth2
 import spotipy
 
 from callback_server import callback_server
