@@ -47,7 +47,7 @@ class LastfmTest(unittest.TestCase):
     def test_get_loved_tracks_list(self):
         """Method testing get_loved_tracks method which retrives loved tracks for a given user
         and creates a list of dictionaries."""
+        expected_output = [{'artist': 'Freddy The Flying Dutchman & The Sistina Band',
+                           'title': 'Wojtyla Disco Dance'}]
         loved_tracks_list = lastfm.get_loved_tracks('dummy_test_acc', 'test1!')
-        self.assertEqual(loved_tracks_list,
-                         [{'artist': 'Freddy The Flying Dutchman & The Sistina Band',
-                           'title': 'Wojtyla Disco Dance'}])
+        self.assertEqual(loved_tracks_list, expected_output)

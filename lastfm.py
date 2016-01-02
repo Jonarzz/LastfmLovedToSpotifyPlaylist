@@ -32,7 +32,7 @@ def get_lastfm_user(username, password):
     in the properties file. After the successful connection, User object is returned."""
     password_hash = pylast.md5(password)
     network = pylast.LastFMNetwork(
-        api_key=properties.API_KEY, api_secret=properties.API_SECRET,
+        api_key=properties.LASTFM_API_KEY, api_secret=properties.LASTFM_API_SECRET,
         username=username, password_hash=password_hash)
 
     return network.get_user(username)
