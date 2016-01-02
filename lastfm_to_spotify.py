@@ -11,8 +11,8 @@ __author__ = 'Jonasz'
 def main():
     """Main method of the module and project that brings together other modules using APIs."""
     loved_tracks = lastfm.get_loved_tracks_list('dummy_test_acc', 'test1!')
-    spotify_username = 'xxx'
-    playlist_name = 'test5'
+    spotify_username = sys.argv[1]
+    playlist_name = sys.argv[2]
     try:
         token = spotify.generate_token(spotify_username)
     except spotify.TokenGenerationException:

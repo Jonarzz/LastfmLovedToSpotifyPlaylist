@@ -7,9 +7,6 @@ import properties
 
 __author__ = 'Jonarzz'
 
-username = '1176336975'
-playlist_name = 'test3'
-
 
 class TokenGenerationException(Exception):
     pass
@@ -50,7 +47,7 @@ def create_spotify_tracks_ids_list_from_loved(loved_tracks, spotify):
 
 
 def create_playlist_for_user(spotify, spotify_username, playlist_name):
-    playlist = spotify.user_playlist_create(username, playlist_name)
+    playlist = spotify.user_playlist_create(spotify_username, playlist_name)
     return playlist['id']
 
 
