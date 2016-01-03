@@ -24,18 +24,8 @@ def prompt_for_user_token(username, scope=None, client_id=None,
          - redirect_uri - the redirect URI of your app
 
     '''
-
     if not client_id:
-        client_id = os.getenv('SPOTIPY_CLIENT_ID')
-
-    if not client_secret:
-        client_secret = os.getenv('SPOTIPY_CLIENT_SECRET')
-
-    if not redirect_uri:
-        redirect_uri = os.getenv('SPOTIPY_REDIRECT_URI')
-
-    if not client_id:
-        raise spotipy.SpotifyException(550, -1, 'no credentials set')
+        raise spotipy.SpotifyException(550, -1, 'No credentials set')
 
     sp_oauth = oauth2.SpotifyOAuth(client_id, client_secret, redirect_uri,
                                    scope=scope)
