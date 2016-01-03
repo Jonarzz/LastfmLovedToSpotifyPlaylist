@@ -62,7 +62,7 @@ class LastfmTest(unittest.TestCase):
         loved_tracks_list = lastfm.get_loved_tracks_list(user)
 
         expected_output = [{'artist': 'Freddy The Flying Dutchman & The Sistina Band',
-                           'title': 'Wojtyla Disco Dance'},
+                            'title': 'Wojtyla Disco Dance'},
                            {'artist': 'Desire', 'title': 'Under Your Spell'}]
 
         for output in expected_output:

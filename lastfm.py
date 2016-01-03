@@ -9,7 +9,7 @@ __author__ = 'Jonarzz'
 
 
 class WrongCredentialsException(Exception):
-    """Exception raised when LastFM username and password do not match."""
+    """Exception raised when LastFM username and password do pass the verification."""
     pass
 
 
@@ -21,14 +21,15 @@ def get_loved_tracks_list(user):
 
 
 def create_track_dict(loved_track):
-    """Method that creates a dictionary for a given loved_track from LastFM API in such format:
+    """Method that creates a dictionary for a given LovedTrack object from LastFM API
+    in such format:
     {'artist': artist-name, 'title': track-title}"""
     return {'artist': loved_track.track.artist.get_name(),
             'title': loved_track.track.title}
 
 
 def get_loved_tracks(user, track_limit=None):
-    """Method that returns loved tracks objects using LastFM API."""
+    """Method that returns pylast.LovedTrack objects using LastFM API."""
     return user.get_loved_tracks(limit=track_limit)
 
 

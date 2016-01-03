@@ -9,8 +9,8 @@ __author__ = 'Jonasz'
 
 
 def lastfm_fav_to_spotify_playlist():
-    """Main method of the module and project that brings together other modules using APIs."""
-    loved_tracks, spotify_username, playlist_name = extract_variables()
+    """Main method of the project that brings together other modules that are using APIs."""
+    (loved_tracks, spotify_username, playlist_name) = extract_variables()
 
     try:
         token = spotify.generate_token(spotify_username)
@@ -24,18 +24,25 @@ def lastfm_fav_to_spotify_playlist():
 
 
 def extract_variables():
+    """Method that extracts variables given as arguments when running the script
+    and returns:
+    - loved_tracks (list of dictionaries - read the doc of
+    lastfm.get_loved_tracks_list method for further information)
+    - spotify_username (given as argument)
+    - playlist_name (given as argument)
+    """
     try:
         lastfm_user = lastfm.get_lastfm_user(sys.argv[1], sys.argv[2])
     except lastfm.WrongCredentialsException:
         print('Wrong LastFM credentials.')  # GUI => dialog window
-        input()
+        input('Press any key.')
         return
 
     loved_tracks = lastfm.get_loved_tracks_list(lastfm_user)
     spotify_username = sys.argv[3]
     playlist_name = sys.argv[4]
 
-    return loved_tracks, spotify_username, playlist_name
+    return (loved_tracks, spotify_username, playlist_name)
 
 
 if __name__ == '__main__':

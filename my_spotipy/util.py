@@ -1,7 +1,6 @@
-# shows a user's playlists (need to be authenticated via oauth)
+"""Shows a user's playlists (need to be authenticated via oauth)."""
 
 from __future__ import print_function
-import os
 import webbrowser
 from spotipy import oauth2
 import spotipy
@@ -22,13 +21,11 @@ def prompt_for_user_token(username, scope=None, client_id=None,
          - client_id - the client id of your app
          - client_secret - the client secret of your app
          - redirect_uri - the redirect URI of your app
-
     '''
     if not client_id:
         raise spotipy.SpotifyException(550, -1, 'No credentials set')
 
-    sp_oauth = oauth2.SpotifyOAuth(client_id, client_secret, redirect_uri,
-                                   scope=scope)
+    sp_oauth = oauth2.SpotifyOAuth(client_id, client_secret, redirect_uri, scope=scope)
 
     auth_url = sp_oauth.get_authorize_url()
     callbackServer = callback_server.CallbackServer()
