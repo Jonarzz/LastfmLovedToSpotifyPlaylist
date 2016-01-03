@@ -8,15 +8,13 @@ import spotipy
 from callback_server import callback_server
 
 
-def prompt_for_user_token(username, scope=None, client_id=None,
+def prompt_for_user_token(scope=None, client_id=None,
                           client_secret=None, redirect_uri=None):
     ''' prompts the user to login if necessary and returns
         the user token suitable for use with the spotipy.Spotify 
         constructor
 
         Parameters:
-
-         - username - the Spotify username
          - scope - the desired scope of the request
          - client_id - the client id of your app
          - client_secret - the client secret of your app
@@ -34,15 +32,10 @@ def prompt_for_user_token(username, scope=None, client_id=None,
 
     callbackServer.wait_for_request()
 
-    while callbackServer.url == '':
-        pass
-
     response = callbackServer.url
 
     code = sp_oauth.parse_response_code(response)
     token_info = sp_oauth.get_access_token(code)
 
-    if token_info:
-        return token_info['access_token']
-    else:
-        return None
+    return token_info['access_token']
+

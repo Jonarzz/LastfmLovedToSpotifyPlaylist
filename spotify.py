@@ -20,8 +20,9 @@ def generate_token(spotify_username):
     """Method that returns a spotipy Spotify API token for a given username, if the user
     gave the permission to connect the app with their account.
     If the token could not be generated, TokenGenerationException is raised."""
-    token = util.prompt_for_user_token(spotify_username, properties.MODIFY_PLAYLISTS_SCOPE,
-                                       properties.SPOTIFY_API_ID, properties.SPOTIFY_API_SECRET,
+    token = util.prompt_for_user_token(properties.MODIFY_PLAYLISTS_SCOPE,
+                                       properties.SPOTIFY_API_ID,
+                                       properties.SPOTIFY_API_SECRET,
                                        properties.SPOTIFY_REDIRECT_URL)
     if token:
         return token
