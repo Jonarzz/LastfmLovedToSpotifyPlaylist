@@ -22,6 +22,6 @@ class CallbackServer:
     @staticmethod
     def wait_for_request(server_class=http.server.HTTPServer,
                          handler_class=_MyHandler):
-        server_address = ('0.0.0.0', properties.PORT)
+        server_address = ('', properties.PORT)
         httpd = server_class(server_address, handler_class)
         httpd.handle_request()

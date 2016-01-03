@@ -10,13 +10,20 @@ __author__ = 'Jonasz'
 
 def main():
     """Main method of the module and project that brings together other modules using APIs."""
-    loved_tracks = lastfm.get_loved_tracks_list('dummy_test_acc', 'test1!')
-    spotify_username = sys.argv[1]
-    playlist_name = sys.argv[2]
+    try:
+        lastfm_user = lastfm.get_lastfm_user(sys.argv[1], sys.argv[2])
+    except lastfm.WrongCredentialsException:
+        print('Wrong LastFM credentials.')  # GUI => dialog window
+        input()
+        return
+
+    loved_tracks = lastfm.get_loved_tracks_list(lastfm_user)
+    spotify_username = sys.argv[3]
+    playlist_name = sys.argv[4]
     try:
         token = spotify.generate_token(spotify_username)
     except spotify.TokenGenerationException:
-        print('Error generating token.')
+        print('Error generating token.')  # GUI => dialog window
     else:
         sp = spotify.create_spotify_object(token)
         tracks_ids = spotify.create_spotify_tracks_ids_list_from_loved(loved_tracks, sp)
