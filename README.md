@@ -5,7 +5,9 @@
 
 ###v0.3
 * fully working console script
+
 ###v0.2
 * created a module using Spotify API
+
 ###v0.1
 * created a module using LastFM API
