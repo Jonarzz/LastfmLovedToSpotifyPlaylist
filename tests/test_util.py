@@ -15,6 +15,7 @@ class UtilTest(unittest.TestCase):
     Inherits from TestCase class of unittest module."""
 
     def test_prompt_for_user_token(self):
+        """Method that tests token generation both successful and with exception raised."""
         self.assertRaises(spotipy.SpotifyException,
                           util.prompt_for_user_token)
 

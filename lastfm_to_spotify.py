@@ -13,7 +13,7 @@ def lastfm_fav_to_spotify_playlist():
     (loved_tracks, spotify_username, playlist_name) = extract_variables()
 
     try:
-        token = spotify.generate_token(spotify_username)
+        token = spotify.generate_token()
     except spotify.TokenGenerationException:
         print('Error generating token.')  # GUI => dialog window
     else:
@@ -42,7 +42,7 @@ def extract_variables():
     spotify_username = sys.argv[3]
     playlist_name = sys.argv[4]
 
-    return (loved_tracks, spotify_username, playlist_name)
+    return loved_tracks, spotify_username, playlist_name
 
 
 if __name__ == '__main__':
