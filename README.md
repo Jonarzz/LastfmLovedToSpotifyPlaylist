@@ -3,6 +3,9 @@
 [![Code Climate](https://codeclimate.com/github/Jonarzz/LastfmLovedToSpotifyPlaylist/badges/gpa.svg)](https://codeclimate.com/github/Jonarzz/LastfmLovedToSpotifyPlaylist) [![Issue Count](https://codeclimate.com/github/Jonarzz/LastfmLovedToSpotifyPlaylist/badges/issue_count.svg)](https://codeclimate.com/github/Jonarzz/LastfmLovedToSpotifyPlaylist)
 ###*Work in progress*
 
+###v0.4
+* code fully covered with tests and comments
+
 ###v0.3
 * fully working console script
 
